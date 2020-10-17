@@ -1,0 +1,11 @@
+Welcome to DrRacket, version 7.4 [3m].
+Language: racket, with debugging; memory limit: 128 MB.
+Loading Simply Scheme...
+All done.
+> (acronym '(United States of America))
+"USA"
+> (acronym '(non-initiation of force))
+'nf
+> (acronym '((United States of America)))
+. . Invalid first argument to MEMBER?:  (United States of America)
+> 
