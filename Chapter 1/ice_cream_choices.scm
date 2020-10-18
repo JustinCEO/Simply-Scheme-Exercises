@@ -1,6 +1,7 @@
 #lang racket
 (require "definitions/simply_redef.scm")
 
+
 (define (choices menu)
   (if (null? menu)
       '(())
@@ -11,3 +12,4 @@
 
 (define (prepend-every item lst)
   (map (lambda (choice) (se item choice)) lst))
+

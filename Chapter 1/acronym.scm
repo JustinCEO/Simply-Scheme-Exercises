@@ -7,3 +7,4 @@
 
 (define (real-word? wd)
   (not (member? wd '(a the an in of and for to with))))
+
