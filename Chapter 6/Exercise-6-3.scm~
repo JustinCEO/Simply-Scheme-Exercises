@@ -1,0 +1,15 @@
+#lang racket
+(require "definitions/simply_redef.scm")
+
+
+(define (divisible? big small)
+  (= (remainder big small) 0))
+
+(define (num-divisible-by-4? x)
+  (and (number? x) (divisible? x 4)))
+
+(define (vowel? letter)
+  (member? letter 'aeiou))
+
+(define (letter-e? wd)
+  (member? 'e wd))
