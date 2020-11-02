@@ -17,7 +17,6 @@
 
 
 
-
 (election-result 268 'gop)
 ;'(Trump loses)
 
