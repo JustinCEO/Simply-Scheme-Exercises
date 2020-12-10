@@ -17,3 +17,6 @@
 
 (copies 0.5 'spam)
 ;'(valid non-negative integers only, friend!)
+
+(copies 0 'spam)
+;'()
