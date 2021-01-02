@@ -7,13 +7,9 @@
 (define (consonant? letter)
   (not (vowel? letter)))
 
-(define (last-letter letter)
-  (if (vowel? letter) 1 0))
-  
 (define (vowel-consonant-boundary wd)
   (if (and (vowel? (first wd))(consonant? (first (bf wd))))
           1 0))
-
 
 (define (silent-e wd)
   (if (member? wd '(ace age ape bake like cooperate one)) -1 0))
@@ -25,7 +21,7 @@
 
 (define (syllables-helper wd)
     (cond ((empty? wd) 0)
-        ((= (count wd) 1) (last-letter wd))
+        ((and (= (count wd) 1)(vowel? wd)) 1)
         ((vowel? (first wd)) (+ (vowel-consonant-boundary wd) (syllables-helper (bf wd))))
          (else (syllables-helper (bf wd)))))
 
@@ -54,3 +50,6 @@
 (syllables 'boa)
 ;2
 (syllables 'one)
+;1
+(syllables 'boo)
+;1
