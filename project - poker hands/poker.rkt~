@@ -1,0 +1,127 @@
+#lang planet dyoo/simply-scheme:2:2
+
+(define (before-num? num1 num2)
+  (< num1 num2))
+
+(define (remove-once wd sent)
+  (cond ((empty? sent) '())
+((equal? wd (first sent)) (bf sent))
+(else (se (first sent) (remove-once wd (bf sent))))))
+
+(define (earliest-helper so-far rest) ; so-far refers to the earliest word at this point in our analysis
+  (cond ((empty? rest) so-far) ; if rest is empty then that means so-far was the earliest word in the sentence so we should return it
+    ((before-num? so-far (first rest))
+     (earliest-helper so-far (bf rest)))
+    (else (earliest-helper (first rest) (bf rest)))))
+
+(define (earliest-word sent)
+  (earliest-helper (first sent) (bf sent)))
+
+(define (sort sent)
+  (if (empty? sent)
+  '()
+  (se (earliest-word sent) ; provides sentence with the first word in the current sentence as an argument
+  (sort (remove-once (earliest-word sent) sent))))) ; recursively calls sort with sentence with word that comes first removed
+
+
+
+
+(define (card-name letter)
+  (cond ((equal? letter 's) 'spades)
+        ((equal? letter 'h) 'hearts)
+        ((equal? letter 'c) 'clubs)
+        ((equal? letter 'd) 'diamonds)
+        (else 'idk)))
+
+(define (count-suit suit hand)
+(appearances suit (accumulate word hand)))
+
+(define (count-suits hand)
+      (every (lambda (suit) (count-suit suit hand)) '(s h c d)) )
+
+
+;my flush is a semipredicate. since the cards are only five cards in a hand, you can just grab whatever card name to figure out the suit
+
+
+(define (flush? suit-counts)
+  (if (member? 5 suit-counts)
+      (card-name (first (first suit-counts)))
+      #f
+      ))
+
+
+
+(define (hand-ranks hand)
+  (se (every (lambda (card) (bf card)) hand)))
+
+(define (convert-rank rank)
+(cond ((equal? rank 'a) '(1 14))
+      ((equal? rank 'k) 13)
+      ((equal? rank 'q) 12)
+      ((equal? rank 'j) 11)
+      (else rank)))
+
+
+(define (convert-all-ranks ranks)
+(every convert-rank ranks))
+
+
+(define (sort-ranks hand)
+(sort (convert-all-ranks (hand-ranks hand))))
+
+
+
+
+(define (five-in-a-row? five-cards)
+  (= (item 1 five-cards)
+     (- (item 2 five-cards) 1)
+     (- (item 3 five-cards) 2)
+     (- (item 4 five-cards) 3)
+     (- (item 5 five-cards) 4)))
+
+
+(define (10-through-ace? sorted-ranks)
+  (and 
+    (equal? (last sorted-ranks) 14)
+    (equal? (last (bl sorted-ranks)) 13)
+    (equal? (last (bl (bl sorted-ranks))) 12)
+    (equal? (last (bl (bl (bl sorted-ranks)))) 11)
+    (equal? (last (bl (bl (bl (bl sorted-ranks))))) 10)))
+
+
+
+(define (straight? sorted-ranks)
+  (cond ((< (count sorted-ranks) 5) #f)
+        ((five-in-a-row? ((repeated bl (- (count sorted-ranks) 5)) sorted-ranks)) #t)
+        (else (straight? (bf sorted-ranks)))))
+
+
+(define (royal-flush? sorted-ranks suit-counts)
+  (and  (flush? suit-counts)
+        (10-through-ace? sorted-ranks)))
+
+
+(define (poker-value hand)
+(let ((sorted-ranks (sort-ranks hand))
+     (suit-counts (count-suits hand))
+      )
+(cond
+       ((and  (flush? suit-counts)
+        (10-through-ace? sorted-ranks))
+       '(royal flush))
+      ((and (straight? sorted-ranks)
+            (flush? suit-counts))
+       '(straight flush))
+
+      ((flush? suit-counts) (se '(royal flush - )
+                         (flush? suit-counts)))
+      ((straight? sorted-ranks)
+       (se 'straight))
+      )))
+  
+
+
+
+(poker-value '(dq d10 dj da dk))
+
+(poker-value '(h2 c3 s4 d5 h6))
