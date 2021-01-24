@@ -206,6 +206,8 @@
        (se '(pair of) (pf 2cards)))
       (else '(nothing))))))
 
+;tests
+
 (poker-value '(dq d10 dj da dk))
 ;royal flush - diamonds
 (poker-value '(h2 h3 h4 h6 h5))
