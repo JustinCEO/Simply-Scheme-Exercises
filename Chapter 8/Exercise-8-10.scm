@@ -1,5 +1,9 @@
 #lang planet dyoo/simply-scheme:2:2
 
+
+
+;Write a predicate `true-for-all?` that takes two arguments, a predicate procedure and a sentence. It should return `#t` if the predicate argument returns true for *every* word in the sentence.
+
 (define (vowel? letter)
   (member? letter 'aeiouAEIOU))
 
@@ -8,8 +12,6 @@
   (equal? (count (keep proc sent))(count sent)))
 
 
-  
-;Write a predicate `true-for-all?` that takes two arguments, a predicate procedure and a sentence. It should return `#t` if the predicate argument returns true for *every* word in the sentence.
 
 (true-for-all? even? '(2 4 6 8))
 ;#T

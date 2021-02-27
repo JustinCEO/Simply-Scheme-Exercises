@@ -216,6 +216,10 @@
 ;four of a kind - aces
 (poker-value '(h2 d2 c2 h3 d3))
 ;full house - twos over threes
+(poker-value '(h3 d3 c3 h2 d2))
+;full house - threes over twos
+(poker-value '(ha da ca hq cq))
+;full house - aces over queens
 (poker-value '(h2 h3 h5 h6 h7))
 ;flush - hearts
 (poker-value '(ca h2 d3 s4 c5))

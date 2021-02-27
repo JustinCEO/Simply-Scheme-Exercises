@@ -1,6 +1,0 @@
-#lang planet dyoo/simply-scheme:2:2
-
-(define (addup nums)
-  (if (empty? (bf nums))
-      (first nums)
-      (+ (first nums) (addup (bf nums)))))

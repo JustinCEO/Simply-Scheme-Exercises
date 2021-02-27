@@ -22,9 +22,6 @@
 (define (log10 n)
   (/ (log n) (log 10)))
 
-(define (scientific number power-of-ten)
-  (* number (expt 10 power-of-ten)))
-
 (define (sci-exponent number)
   (floor (log10 number)))
 
@@ -36,22 +33,30 @@
 
 
 ; test cases
-; (sci-coefficient 0.00042) ; should return 4.2 or 42. PASSES
 
-; (sci-coefficient 0.034) ; should return 3.4 or 34. PASSES
+(sci-coefficient 0.00042)
+; should return 4.2 or 42. PASSES
 
-; (sci-coefficient 7300) ; should return 7.3 or 73. PASSES
+(sci-coefficient 0.034)
+;should return 3.4 or 34. PASSES with caveat that it's returning some extra precision in the number for some reason
 
-; (sci-coefficient 1.05) ; should return the same value, 1.05. FAILS
+(sci-coefficient 7300)
+; should return 7.3 or 73. PASSES
 
-; (sci-exponent 7000) ; should return 3
+(sci-coefficient 1.05)
+; should return the same value, 1.05. PASSES
 
-; (sci-exponent 7300) ; should return 3
+(sci-exponent 7000)
+; should return 3. PASSES
 
-; (sci-exponent 1.05) ; should return 0
+(sci-exponent 7300)
+; should return 3. PASSES
 
-; (sci-exponent 15) ; should return 1
+(sci-exponent 1.05)
+; should return 0. PASSES
 
-; (sci-exponent 0.00042) ; should return -4
+(sci-exponent 15)
+; should return 1. PASSES
 
-; (sci-exponent 
+(sci-exponent 0.00042)
+; should return -4. PASSES

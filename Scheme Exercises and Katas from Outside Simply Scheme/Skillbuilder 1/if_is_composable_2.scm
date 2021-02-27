@@ -16,4 +16,3 @@
 
 (bank-account-status 200)
 ;'(Your account balance is $200 dollars)
-

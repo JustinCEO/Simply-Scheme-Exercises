@@ -6,9 +6,9 @@
 (define (square x)
   (* x x))
 
-;(define (fourth number)
-;  (* number (* number (* number (* number)))))
+(define (fourth1 number)
+  (* number (* number (* number (* number)))))
 
 
-(define (fourth number)
+(define (fourth2 number)
   (square (square number)))

@@ -36,7 +36,7 @@
                   (large-number-name large-number-count)
                   '()
                   ))))
-  
+
 (define (negative? number)
   (equal? (first number) '-))
 
@@ -50,14 +50,7 @@
 
 
 
-;(trace number-name)
-;(trace all-zeros?)
-;(trace number-name-helper)
-;(trace large-number-name)
-;(trace triple-helper)
-;(trace triple-number-accumulator)
-
-
+;tests
 
 (number-name 12)
 (number-name 10)
