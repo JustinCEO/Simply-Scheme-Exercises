@@ -1,1 +1,0 @@
-("7.4" racket ("9fd4a702c23b4e683d20dd96713f96581ec86616" "57e09269aa71255dc7e361732edb2194f3623af5" . "58cb95b7e5a35b8b7d38eda5b11f352178210c1c") (collects #"planet" #"private" #"define-config.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"setup" #"dirs.rkt"))

@@ -1,1 +1,0 @@
-("7.4" racket ("c8bb90994b180a0a49e33e08ff48dbd483dd88b3" "2a97f0d1ca72ba1b3e3fbc21552ca96046c50176" . "ec395399c25a4f5988049cb32328ad262626eb55") (collects #"launcher" #"launcher.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt"))
