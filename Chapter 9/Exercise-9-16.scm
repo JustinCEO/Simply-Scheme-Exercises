@@ -1,10 +1,5 @@
 #lang planet dyoo/simply-scheme:2:2
 
-(define (square number)
-  (* number number))
-
-(define (append-e wd)
-  (word wd 'e))
 
 
 
@@ -12,13 +7,16 @@
 
 ;Write a procedure aplize that takes as its argument a one-argument procedure whose domain is numbers or words. It should return an APLized procedure that also accepts sentences:
 ;
+
 (define (aplize func)
   (lambda (arg) (if (or (number? arg)(word? arg)) (func arg) (every func arg))))   ; if the function is a number or word then apply func to it, otherwise apply func to whole sentence
 
 
+(define (square number)
+  (* number number))
 
-(define (aplize func)
-  (lambda (arg) (if (number? arg) (func arg) (every func arg))))
+(define (append-e wd)
+  (word wd 'e))
 
 
 
