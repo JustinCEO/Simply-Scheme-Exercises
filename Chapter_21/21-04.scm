@@ -10,7 +10,7 @@
       domain-status))
 
 ;; The list itself
-          
+
 (define *the-functions*
   (list (list '* * 2 two-numbers? "Both arguments must be numbers")
 	(list '+ + 2 two-numbers? "Both arguments must be numbers")
@@ -23,7 +23,7 @@
 	(list '>= >= 2 two-reals? "Both arguments must be real numbers")
 	(list 'abs abs 1 real? "The argument must be a real number")
 	(list 'acos acos 1 trig-range? "The argument must be between 1 and -1")
-	(list 'and (lambda (x y) (and x y)) 2 
+	(list 'and (lambda (x y) (and x y)) 2
 	      (lambda (x y) (and (boolean? x) (boolean? y)))
               "Both arguments must be true or false")
 	(list 'appearances appearances 2 member-types-ok? "The first argument must be a word, and the second argument must either 1) be a sentence OR 2) be a word IF AND ONLY IF the first argument is a word of exactly 1 character")
